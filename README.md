@@ -1,3 +1,5 @@
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/preview.jpg)
+
 # luckyballs
 LuckyBalls - Lotto Statistics and Ball Draw Algorithms In C
 
@@ -91,3 +93,30 @@ HOW TO COMPILE FILES?
 
       gcc powerball.c -o outputfile -lm
 
+
+
+SCREENSHOTS
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/01.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/02.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/03.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/04.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/05.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/06.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/07.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/08.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/09.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/10.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/11.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/12.png)
