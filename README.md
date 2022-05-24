@@ -1,4 +1,4 @@
-![alt text](https://disk.yandex.com.tr/i/CQVf5TJdzY6J8g)
+![alt text](https://disk.yandex.com.tr/i/5I5xMGQ_YKrrrg)
 
 # luckyballs
 LuckyBalls - Lotto Statistics and Ball Draw Algorithms In C
