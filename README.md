@@ -13,55 +13,55 @@ This program offers you useful 1 and 2 dimensional data structures created with 
 
 PACKAGE CONTENTS
 
-   source            : C source files
+      source            : C source files
 
-      lotto.c        : Turkey Sayisal Lotto and Super Lotto
-      powerball.c    : American PowerBall Lotto
+         lotto.c        : Turkey Sayisal Lotto and Super Lotto
+         powerball.c    : American PowerBall Lotto
 
 
-   DOS               : For DOS operating system. 
+      DOS               : For DOS operating system. 
 
-      POWERBLL.EXE   : MS DOS executable files.
-      SAYISL16.EXE   : These files were compiled with the 16-bit Borland Turbo C++ compiler on the Windows XP operating system.
-      SUPER16.EXE
+         POWERBLL.EXE   : MS DOS executable files.
+         SAYISL16.EXE   : These files were compiled with the 16-bit Borland Turbo C++ compiler on the Windows XP operating system.
+         SUPER16.EXE
 
-      powerbll.txt
-      sayisal.txt
+         powerbll.txt
+         sayisal.txt
+         super.txt
+
+
+      powerball.txt        : TXT files are statistics files containing the results of previous draws.
+      sayisal.txt          : These files must be located in the same directory as the executable files.
       super.txt
 
+      powerball-win32.exe  : Windows 32 bit and 64 bit executable files.
+      powerball-win64.exe  : These files were compiled with the gcc compiler on the windows 10 operating system.
+      sayisal-win32.exe
+      sayisal-win64.exe
+      super-win32.exe
+      super-win64.exe
 
-   powerball.txt        : TXT files are statistics files containing the results of previous draws.
-   sayisal.txt          : These files must be located in the same directory as the executable files.
-   super.txt
+      powerball-mac        : macOS executable files.
+      sayisal-mac          : These files were compiled with the gcc compiler on the macOS Mojave 10.14.6 operating system.
+      super-mac
 
-   powerball-win32.exe  : Windows 32 bit and 64 bit executable files.
-   powerball-win64.exe  : These files were compiled with the gcc compiler on the windows 10 operating system.
-   sayisal-win32.exe
-   sayisal-win64.exe
-   super-win32.exe
-   super-win64.exe
-
-   powerball-mac        : macOS executable files.
-   sayisal-mac          : These files were compiled with the gcc compiler on the macOS Mojave 10.14.6 operating system.
-   super-mac
-
-   powerball-linux      : Linux executable files.
-   sayisal-linux        : These files were compiled with the gcc compiler on the centOS 7 Linux operating system.
-   super-linux
+      powerball-linux      : Linux executable files.
+      sayisal-linux        : These files were compiled with the gcc compiler on the centOS 7 Linux operating system.
+      super-linux
 
 
 COMPILER
 
-gcc compiler
+      gcc compiler
 
 
 PLATFORM
 
-Source files were compiled with gcc compiler and successfuly tested on
+      Source files were compiled with gcc compiler and successfuly tested on
 
-Windows 10
-macOS Mojave 10.14.6
-centOS 7 Linux
+      Windows 10
+      macOS Mojave 10.14.6
+      centOS 7 Linux
 
 
 
