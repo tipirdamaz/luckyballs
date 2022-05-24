@@ -166,9 +166,11 @@ struct ListXY {			/* 2 dimensions List. Multi draw (coupon or drawn balls from f
  * @return {struct ListX *}   : refers to the ball list (memory allocated)
  */
 struct ListX *createListX(struct ListX *pl, char *date, char *label, int val);
+```
 
 
 
+```
 /** 
  * Create Empty 2 dimensions List
  * 
@@ -176,9 +178,11 @@ struct ListX *createListX(struct ListX *pl, char *date, char *label, int val);
  * @return {struct ListXY *}   : refers to the ball list (memory allocated)
  */
 struct ListXY *createListXY(struct ListXY *pl);
+```
 
 
 
+```
 /** 
  * Add an item (ball) to the beginning of the list
  * 
@@ -186,9 +190,11 @@ struct ListXY *createListXY(struct ListXY *pl);
  * @param {Integer} key        : the key to which the ball will be added
  */
 void insertItem(struct ListX *pl, int key);
+```
 
 
 
+```
 /** 
  * Add an item (ball) to the end of the list
  * 
@@ -196,9 +202,11 @@ void insertItem(struct ListX *pl, int key);
  * @param {Integer} key        : the key to which the ball will be added
  */
 void appendItem(struct ListX *pl, int key);
+```
 
 
 
+```
 /** 
  * Add a list to the end of the 2 dimensions list
  * 
@@ -206,9 +214,11 @@ void appendItem(struct ListX *pl, int key);
  * @param {struct ListX *}     : refers to a ball list
  */
 void appendList(struct ListXY *pl, struct ListX *plNext);
+```
 
 
 
+```
 /** 
  * Removes the specified item (ball) by key (ball number) from the list
  * 
@@ -216,9 +226,11 @@ void appendList(struct ListXY *pl, struct ListX *plNext);
  * @param {Integer} key        : the key to which the ball will be removed
  */
 void removeItemByKey(struct ListX *pl, int key);
+```
 
 
 
+```
 /** 
  * Removes item and returns the key (ball number) at the specified index from the list
  * 
@@ -227,9 +239,11 @@ void removeItemByKey(struct ListX *pl, int key);
  * @return {Integer}           : returns key (ball number)
  */
 int removeItemByIndex(struct ListX *pl, int ind);
+```
 
 
 
+```
 /** 
  * If the specified key is not in the list, it adds to the specified index and returns 1
  * 
@@ -239,27 +253,33 @@ int removeItemByIndex(struct ListX *pl, int ind);
  * @return {Integer}           : If the key is in the list, it does not add it to the list and return 0
  */
 int addItemByIndex(struct ListX *pl, int ind, int key);
+```
 
 
 
+```
 /** 
  * Remove all items in the list
  * 
  * @param {struct ListX *}     : refers to a ball list
  */
 void removeAllX(struct ListX *pl);
+```
 
 
 
+```
 /** 
  * Remove all list in the 2 dimensions list
  * 
  * @param {struct ListXY *}    : refers to a 2 dimensions ball list (multiple draws)
  */
 void removeAllXY(struct ListXY *pl);
+```
 
 
 
+```
 /** 
  * Return the number of items in the list
  * 
@@ -267,9 +287,11 @@ void removeAllXY(struct ListXY *pl);
  * @return {Integer}           : Return the number of items in the list
  */
 int length(struct ListX *pl);
+```
 
 
 
+```
 /** 
  * Return the number of list in the 2 dimensions list
  * 
@@ -277,9 +299,11 @@ int length(struct ListX *pl);
  * @return {Integer}           : Return the number of list in the 2 dimensions list
  */
 int lengthY(struct ListXY *pl);
+```
 
 
 
+```
 /** 
  * Find the pointer of the item (ball) at the end of the list
  * 
@@ -287,9 +311,11 @@ int lengthY(struct ListXY *pl);
  * @return {struct Item *}    : returns pointer of the item at the end of the list
  */
 struct Item *atEnd(struct ListX *pl);
+```
 
 
 
+```
 /** 
  * Find the pointer of the list at the end of the 2 dimensions list
  * 
@@ -297,9 +323,11 @@ struct Item *atEnd(struct ListX *pl);
  * @return {struct ListX *}    : returns pointer of the list at the end of the 2 dimensions list
  */
 struct ListX *atEndY(struct ListXY *pl);
+```
 
 
 
+```
 /** 
  * Searches for a key (ball number) from the list.
  * 
@@ -308,9 +336,11 @@ struct ListX *atEndY(struct ListXY *pl);
  * @return {Integer}           : It returns the index of the number if it finds it, or -1 if it doesn't.
  */
 int seqSearch(struct ListX *pl, int key);
+```
 
 
 
+```
 /**
  * Searches for a key (ball number) from the 2 dimensions list.
  * 
@@ -320,9 +350,11 @@ int seqSearch(struct ListX *pl, int key);
  *                               This is index of the first list containing the key in the 2 dimensions list
  */
 int seqSearchXY1(struct ListXY *pl, int key);
+```
 
 
 
+```
 /**
  * Searches for 2 key (ball number) from the 2 dimensions list.
  * 
@@ -333,9 +365,11 @@ int seqSearchXY1(struct ListXY *pl, int key);
  *                               This is index of the first list containing the key in the 2 dimensions list
  */
 int seqSearchXY2(struct ListXY *pl, int key1, int key2);
+```
 
 
 
+```
 /**
  * Searches for 3 key (ball number) from the 2 dimensions list.
  * 
@@ -347,9 +381,11 @@ int seqSearchXY2(struct ListXY *pl, int key1, int key2);
  *                               This is index of the first list containing the key in the 2 dimensions list
  */
 int seqSearchXY3(struct ListXY *pl, int key1, int key2, int key3);
+```
 
 
 
+```
 /**
  * Searches for 4 key (ball number) from the 2 dimensions list.
  * 
@@ -362,9 +398,11 @@ int seqSearchXY3(struct ListXY *pl, int key1, int key2, int key3);
  *                               This is index of the first list containing the key in the 2 dimensions list
  */
 int seqSearchXY4(struct ListXY *pl, int key1, int key2, int key3, int key4);
+```
 
 
 
+```
 /** 
  * Assigns the specified value to the item at the specified index
  * 
@@ -373,9 +411,11 @@ int seqSearchXY4(struct ListXY *pl, int key1, int key2, int key3, int key4);
  * @param {Integer} val        : Item value
  */
 void chgVal(struct ListX *pl, int ind, int val);
+```
 
 
 
+```
 /** 
  * Increments the value (the number of times the ball has drawn so far) of the item at the specified index by 1
  * 
@@ -383,9 +423,11 @@ void chgVal(struct ListX *pl, int ind, int val);
  * @param {Integer} ind        : index of an item (ball) in the ball list
  */
 void incVal(struct ListX *pl, int ind);
+```
 
 
 
+```
 /** 
  * Increments the value (how many times the numbers that love each other drawn together) of the list at the specified index by 1
  * 
@@ -393,9 +435,11 @@ void incVal(struct ListX *pl, int ind);
  * @param {Integer} ind        : index of a list in the 2 dimensions ball list
  */
 void incValXY(struct ListXY *pl, int ind);
+```
 
 
 
+```
 /** 
  * Returns the value of the item at the specified index
  * 
@@ -404,9 +448,11 @@ void incValXY(struct ListXY *pl, int ind);
  * @return {Integer}           : Returns the value of the item
  */
 int getVal(struct ListX *pl, int ind);
+```
 
 
 
+```
 /** 
  * Returns the value of the list at the specified index
  * 
@@ -415,9 +461,11 @@ int getVal(struct ListX *pl, int ind);
  * @return {Integer}           : Returns the value of the list at the specified index
  */
 int getValXY(struct ListXY *pl, int ind);
+```
 
 
 
+```
 /** 
  * Returns the key (ball number) of the item at the specified index
  * 
@@ -426,9 +474,11 @@ int getValXY(struct ListXY *pl, int ind);
  * @return {Integer}           : Returns the key (ball number)
  */
 int getKey(struct ListX *pl, int ind);
+```
 
 
 
+```
 /** 
  * Returns the list in the 2 dimensions list at the specified index
  * 
@@ -437,9 +487,11 @@ int getKey(struct ListX *pl, int ind);
  * @return {struct ListX *}    : refers to a ball list at the specified index
  */
 struct ListX * getListXByIndex(struct ListXY *pl, int ind);
+```
 
 
 
+```
 /** 
  * Bubble sort by val the items (balls) in the ball list
  * 
@@ -447,9 +499,11 @@ struct ListX * getListXByIndex(struct ListXY *pl, int ind);
  * @param {Integer} inc       : If inc=1, sort from smallest to greager. If inc=-1, sort from greater to smallest
  */
 void bubbleSortXByVal(struct ListX *pl, int inc);
+```
 
 
 
+```
 /** 
  * Bubble sort by val the lists in the 2 dimensions list
  * 
@@ -457,18 +511,22 @@ void bubbleSortXByVal(struct ListX *pl, int inc);
  * @param {Integer} inc       : If inc=1, sort from smallest to greager. If inc=-1, sort from greater to smallest
  */
 void bubbleSortYByVal(struct ListXY *pl, int inc);
+```
 
 
 
+```
 /** 
  * Bubble sort by key (ball number) from smallest to greager the items (ball) in the ball list
  * 
  * @param {struct ListX *}    : refers to a ball list
  */
 void bubbleSortXByKey(struct ListX *pl);
+```
 
 
 
+```
 /** 
  * Function to swap data of two item (ball) a and b
  * 
@@ -476,9 +534,11 @@ void bubbleSortXByKey(struct ListX *pl);
  * @param {struct Item *} b   : refers to a ball
  */
 void swapX(struct Item *a, struct Item *b);
+```
 
 
 
+```
 /** 
  * Function to swap data of two list a and b
  * 
@@ -486,9 +546,11 @@ void swapX(struct Item *a, struct Item *b);
  * @param {struct ListX *} b   : refers to a ball list
  */
 void swapY(struct ListX *a, struct ListX *b);
+```
 
 
 
+```
 /** 
  * Print keys (ball numbers) of the items in the list
  * 
@@ -497,18 +559,22 @@ void swapY(struct ListX *a, struct ListX *b);
  * @param {FILE *} fp         : refers to output file. If fp != NULL print to output file
  */
 void printListXByKey(struct ListX *pl, int printTo, FILE *fp);
+```
 
 
 
+```
 /** 
  * Print keys of the items (row by row) in the 2 dimensions list
  * 
  * @param {struct ListXY *}    : refers to 2 dimensions ball list
  */
 void printListXYByKey(struct ListXY *pl);
+```
 
 
 
+```
 /** 
  * print ListXY With PowerBall ByKey
  * Print keys of the items (row by row) in the 2 dimensions lists
@@ -518,9 +584,11 @@ void printListXYByKey(struct ListXY *pl);
  * @param {FILE *} fp          : refers to output file. If fp != NULL print to output file
  */
 void printListXYWithPBByKey(struct ListXY *pl1, struct ListXY *pl2, FILE *fp);
+```
 
 
 
+```
 /** 
  * How many times the balls has been drawn so far
  * 
@@ -528,18 +596,22 @@ void printListXYWithPBByKey(struct ListXY *pl1, struct ListXY *pl2, FILE *fp);
  * @param {struct ListX *} powerBallBallStats    : How many times were the powerBall numbers drawn in the previous draws?
  */
 void getDrawnBallsStats(struct ListX *winningBallStats, struct ListX *powerBallBallStats);
+```
 
 
 
+```
 /** 
  * Print key-val pair of the items in the list by ball statistics (How many times the balls has been drawn so far)
  * 
  * @param {struct ListX *} ballStats      : refers to balls and the number of times each ball was drawn in previous draws.
  */
 void printBallStats(struct ListX *ballStats);
+```
 
 
 
+```
 /**
  * print numbers (double combinations or triple combinations) that love each other (lucky balls)
 
@@ -547,9 +619,11 @@ void printBallStats(struct ListX *ballStats);
  * @param {FILE *} fp           : refers to output file. If fp != NULL print to output file
 */
 void printLuckyBalls(struct ListXY *pl, FILE *fp);
+```
 
 
 
+```
 /**
  * Return number of term
 
@@ -557,9 +631,11 @@ void printLuckyBalls(struct ListXY *pl, FILE *fp);
  * @return {Integer}    : n
 */
 int numberOfTerm(int sum);
+```
 
 
 
+```
 /** 
  * The numbers that came out in the previous draws (ballStats) are arranged at the base of the pascal's triangle and the ball is dropped on 
  * (with gaussIndex function) it and the ball hit is drawn. The gaussIndex function returns the index (random) of one of the balls arranged 
@@ -573,9 +649,11 @@ int numberOfTerm(int sum);
  *                                   Usually retuns the middle numbers
  */
 int gaussIndex(int ballCount);
+```
 
 
 
+```
 /** 
  * Draw based on today's date
  * 
@@ -583,9 +661,11 @@ int gaussIndex(int ballCount);
  * @return {struct ListXY *}              : Returns 2 drawn list.
  */
 struct ListXY * drawBallByDate(struct ListX *ballStats);
+```
 
 
 
+```
 /** 
  * Draw random numbers
  * 
@@ -603,9 +683,11 @@ struct ListXY * drawBallByDate(struct ListX *ballStats);
  * @return {struct ListX *} drawnBallsRand: Returns new drawn balls.
  */
 struct ListX * drawBallByRand(struct ListX *drawnBallsRand, struct ListX *ballStats, int totalBall, int drawBall, int matchComb, int elimComb);
+```
 
 
 
+```
 /** 
  * The numbers that came out in the previous draws (ballStats) are arranged at the base of the pascal triangle
  * (stacked to the left) according to the number that comes out the most from the number that comes out the least, 
@@ -621,9 +703,11 @@ struct ListX * drawBallByRand(struct ListX *drawnBallsRand, struct ListX *ballSt
  * @return {struct ListX *} drawnBallsLeft: Returns new drawn balls.
  */
 struct ListX * drawBallByLeft(struct ListX *drawnBallsLeft, struct ListX *ballStats, int totalBall, int drawBall, int matchComb, int elimComb);
+```
 
 
 
+```
 /** 
  * Blend 1
  * Dividing the list of numbers (ballStats) in the middle, inverting the left and right parts and combining them.
@@ -640,9 +724,11 @@ struct ListX * drawBallByLeft(struct ListX *drawnBallsLeft, struct ListX *ballSt
  * @return {struct ListX *} drawnBallsBlend1	: Returns new drawn balls.
  */
 struct ListX * drawBallByBlend1(struct ListX *drawnBallsBlend1, struct ListX *ballStats, int totalBall, int drawBall, int matchComb, int elimComb);
+```
 
 
 
+```
 /** 
  * Blend 2
  * The balls are taken from the left and right of the ballStats and placed from the middle of the globe 
@@ -658,9 +744,11 @@ struct ListX * drawBallByBlend1(struct ListX *drawnBallsBlend1, struct ListX *ba
  * @return {struct ListX *} drawnBallsBlend2	: Returns new drawn balls.
  */
 struct ListX * drawBallByBlend2(struct ListX *drawnBallsBlend2, struct ListX *ballStats, int totalBall, int drawBall, int matchComb, int elimComb);
+```
 
 
 
+```
 /** 
  * The balls that drawn the least are placed in the middle of the globe, and the balls that drawn the most are placed on the edges.
  * 
@@ -674,9 +762,11 @@ struct ListX * drawBallByBlend2(struct ListX *drawnBallsBlend2, struct ListX *ba
  * @return {struct ListX *} drawnBallsSide	: Returns new drawn balls.
  */
 struct ListX * drawBallBySide(struct ListX *drawnBallsSide, struct ListX *ballStats, int totalBall, int drawBall, int matchComb, int elimComb);
+```
 
 
 
+```
 /** 
  * The most drawn balls are placed in the center of the globe,
  * the least drawn balls are placed at the edges (normal distribution)
@@ -695,9 +785,11 @@ struct ListX * drawBallBySide(struct ListX *drawnBallsSide, struct ListX *ballSt
  * @return {struct ListX *} drawnBallsNorm	: Returns new drawn balls.
  */
 struct ListX * drawBallByNorm(struct ListX *drawnBallsNorm, struct ListX *ballStats, int totalBall, int drawBall, int matchComb, int elimComb);
+```
 
 
 
+```
 /** 
  * The findComb function searches for combinations specified by the comb parameter in previous draws. 
  * For example, the numbers [1, 2, 4, 6, 8, 9] were drawn in one of the previous draws. 
@@ -711,9 +803,11 @@ struct ListX * drawBallByNorm(struct ListX *drawnBallsNorm, struct ListX *ballSt
  * @return {Integer}                  : Returns 1 if found, 0 if not. 
  */
 int findComb(struct ListX *drawnBalls, int comb);
+```
 
 
 
+```
 /** 
  * The search5CombXY function searches for 5 combinations in all previous draws. 
  * 
@@ -722,9 +816,11 @@ int findComb(struct ListX *drawnBalls, int comb);
  * @return {Integer}                      : Returns 1 if found, 0 if not. 
  */
 int search5CombXY(struct ListXY *prvDrawnsList, struct ListX *drawnBalls);
+```
 
 
 
+```
 /** 
  * The search5CombX function searches for 5 combinations in a previous draw. 
  * 
@@ -733,9 +829,11 @@ int search5CombXY(struct ListXY *prvDrawnsList, struct ListX *drawnBalls);
  * @return {Integer}                      : Returns 1 if found, 0 if not. 
  */
 int search5CombX(struct ListX *aPrvDrawn, struct ListX *drawnBalls);
+```
 
 
 
+```
 /** 
  * The search4CombXY function searches for 4 combinations in all previous draws. 
  * 
@@ -744,9 +842,11 @@ int search5CombX(struct ListX *aPrvDrawn, struct ListX *drawnBalls);
  * @return {Integer}                      : Returns 1 if found, 0 if not. 
  */
 int search4CombXY(struct ListXY *prvDrawnsList, struct ListX *drawnBalls);
+```
 
 
 
+```
 /** 
  * The search4CombX function searches for 4 combinations in a previous draw. 
  * 
@@ -757,9 +857,11 @@ int search4CombXY(struct ListXY *prvDrawnsList, struct ListX *drawnBalls);
  * @return {Integer}                      : Returns 1 if found, 0 if not. 
  */
 int search4CombX(struct ListX *aPrvDrawn, struct ListX *drawnBalls, struct ListXY *luckyBalls, char *buf);
+```
 
 
 
+```
 /** 
  * The search3CombXY function searches for 3 combinations in all previous draws. 
  * 
@@ -768,9 +870,11 @@ int search4CombX(struct ListX *aPrvDrawn, struct ListX *drawnBalls, struct ListX
  * @return {Integer}                      : Returns 1 if found, 0 if not. 
  */
 int search3CombXY(struct ListXY *prvDrawnsList, struct ListX *drawnBalls);
+```
 
 
 
+```
 /** 
  * The search3CombX function searches for 3 combinations in a previous draw. 
  * 
@@ -781,9 +885,11 @@ int search3CombXY(struct ListXY *prvDrawnsList, struct ListX *drawnBalls);
  * @return {Integer}                      : Returns 1 if found, 0 if not. 
  */
 int search3CombX(struct ListX *aPrvDrawn, struct ListX *drawnBalls, struct ListXY *luckyBalls, char *buf);
+```
 
 
 
+```
 /** 
  * The search2CombXY function searches for 2 combinations in all previous draws. 
  * 
@@ -792,9 +898,11 @@ int search3CombX(struct ListX *aPrvDrawn, struct ListX *drawnBalls, struct ListX
  * @return {Integer}                      : Returns 1 if found, 0 if not. 
  */
 int search2CombXY(struct ListXY *prvDrawnsList, struct ListX *drawnBalls);
+```
 
 
 
+```
 /** 
  * The search2CombX function searches for 2 combinations in a previous draw. 
  * 
@@ -805,9 +913,11 @@ int search2CombXY(struct ListXY *prvDrawnsList, struct ListX *drawnBalls);
  * @return {Integer}                      : Returns 1 if found, 0 if not. 
  */
 int search2CombX(struct ListX *aPrvDrawn, struct ListX *drawnBalls, struct ListXY *luckyBalls, char *buf);
+```
 
 
 
+```
 /** 
  * The search1BallXY function searches for 1 ball in a draws list. 
  * 
@@ -817,17 +927,21 @@ int search2CombX(struct ListX *aPrvDrawn, struct ListX *drawnBalls, struct ListX
  * @return {Integer}                      : Returns 1 if found, 0 if not. 
  */
 int search1BallXY(struct ListXY *couponList, struct ListX *drawnBalls, int drawBall);
+```
 
 
 
+```
 /**
  * Calculate matching combinations count of numbers from previous draws
  * it prints the number of matching double, triple, quartet, quintuple, and six combinations.
 */
 void calcMatchCombCount();
+```
 
 
 
+```
 /**
  * Calculate matching combinations of numbers from previous draws
  * 
@@ -838,9 +952,11 @@ void calcMatchCombCount();
  * @param {FILE *} fp       : refers to output file. If fp != NULL print to output file
 */
 void calcCombMatch(int comb, FILE *fp);
+```
 
 
 
+```
 /**
  * Get the numbers that love each other drawn together (lucky numbers)
  * 
@@ -849,9 +965,11 @@ void calcCombMatch(int comb, FILE *fp);
  * @return {struct ListXY *} luckyBalls   : refers to the lucky balls list
 */
 struct ListXY * getLuckyBalls(struct ListXY *luckyBalls, int comb);
+```
 
 
 
+```
 /**
  * Draw balls by lucky numbers (the numbers that love each other drawn together)
  * 
@@ -860,9 +978,11 @@ struct ListXY * getLuckyBalls(struct ListXY *luckyBalls, int comb);
  * @param {Integer} totalDrawCount    : 
 */
 void drawBallsByLucky(struct ListXY *coupon, int drawCount, int totalDrawCount);
+```
 
 
 
+```
 /**
  * Draw balls by
  * drawBallByDate
@@ -878,9 +998,11 @@ void drawBallsByLucky(struct ListXY *coupon, int drawCount, int totalDrawCount);
  * @param {Integer} drawByDate		  : If 1 draw balls by date, if 0 don't draw balls by date.
 */
 void drawBalls(struct ListXY *coupon, int drawCount, int drawByDate);
+```
 
 
 
+```
 /**
  * Draw powerBall
  * 
@@ -888,9 +1010,11 @@ void drawBalls(struct ListXY *coupon, int drawCount, int drawByDate);
  * @param {Integer} drawCount         : how many draws will be made
 */
 void drawBallsPB(struct ListXY *coupon, int drawCount);
+```
 
 
 
+```
 /** 
  * Get drawn balls from file has been drawn so far
  * 
