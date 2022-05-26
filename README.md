@@ -21,6 +21,28 @@ This program offers you useful 1 and 2 dimensional data structures created with 
          powerball.c    : American PowerBall Lotto
 
 
+      dist
+
+         powerball-win32.exe  : Windows 32 bit and 64 bit executable files.
+         powerball-win64.exe  : These files were compiled with the gcc compiler on the windows 10 operating system.
+         sayisal-win32.exe
+         sayisal-win64.exe
+         super-win32.exe
+         super-win64.exe
+
+         powerball-mac        : macOS executable files.
+         sayisal-mac          : These files were compiled with the gcc compiler on the macOS Mojave 10.14.6 operating system.
+         super-mac
+
+         powerball-linux      : Linux executable files.
+         sayisal-linux        : These files were compiled with the gcc compiler on the centOS 7 Linux operating system.
+         super-linux
+
+         powerball.txt        : TXT files are statistics files containing the results of previous draws.
+         sayisal.txt          : These files must be located in the same directory as the executable files.
+         super.txt
+
+	 
       DOS               : For DOS operating system. 
 
          POWERBLL.EXE   : MS DOS executable files.
@@ -31,25 +53,6 @@ This program offers you useful 1 and 2 dimensional data structures created with 
          sayisal.txt
          super.txt
 
-
-      powerball.txt        : TXT files are statistics files containing the results of previous draws.
-      sayisal.txt          : These files must be located in the same directory as the executable files.
-      super.txt
-
-      powerball-win32.exe  : Windows 32 bit and 64 bit executable files.
-      powerball-win64.exe  : These files were compiled with the gcc compiler on the windows 10 operating system.
-      sayisal-win32.exe
-      sayisal-win64.exe
-      super-win32.exe
-      super-win64.exe
-
-      powerball-mac        : macOS executable files.
-      sayisal-mac          : These files were compiled with the gcc compiler on the macOS Mojave 10.14.6 operating system.
-      super-mac
-
-      powerball-linux      : Linux executable files.
-      sayisal-linux        : These files were compiled with the gcc compiler on the centOS 7 Linux operating system.
-      super-linux
 
 
 # COMPILER
