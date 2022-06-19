@@ -1027,3 +1027,12 @@ void drawBallsPB(struct ListXY *coupon, int drawCount);
  */
 void getDrawnBallsList(struct ListXY * winningDrawnBallsList, struct ListXY * powerBallDrawnBallsList, char *fileName);
 ```
+
+
+# Donate
+### BTC : 1CASunNSibqCsR5Y6kniSW2t22Rt5Bwtgu
+![alt text](https://github.com/tipirdamaz/migallery/blob/main/donate/btc.png)
+### ETH : 0x3ea58816d52d3a18a447b41a9e65aefb32700551
+![alt text](https://github.com/tipirdamaz/migallery/blob/main/donate/eth.png)
+### USDT : 0x3ea58816d52d3a18a447b41a9e65aefb32700551
+![alt text](https://github.com/tipirdamaz/migallery/blob/main/donate/usdt.png)
