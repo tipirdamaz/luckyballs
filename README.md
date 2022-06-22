@@ -1,7 +1,8 @@
 ![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/preview.jpg)
 
 # LuckyBalls
-LuckyBalls - Lotto Statistics and Ball Draw Algorithms In C
+
+Lotto Statistics and Ball Draw Algorithms In C
 
 
 # WARNING! THIS PROGRAM DOES NOT GUARANTEE YOU WINNING THE LOTTO.
