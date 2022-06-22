@@ -600,9 +600,9 @@ void printListXYWithPBByKey(struct ListXY *pl1, struct ListXY *pl2, FILE *fp);
  * How many times the balls has been drawn so far
  * 
  * @param {struct ListX *} winningBallStats      : How many times were the winning numbers drawn in the previous draws?
- * @param {struct ListX *} powerBallBallStats    : How many times were the powerBall numbers drawn in the previous draws?
+ * @param {struct ListX *} powerBallStats    : How many times were the powerBall numbers drawn in the previous draws?
  */
-void getDrawnBallsStats(struct ListX *winningBallStats, struct ListX *powerBallBallStats);
+void getDrawnBallsStats(struct ListX *winningBallStats, struct ListX *powerBallStats);
 ```
 
 
