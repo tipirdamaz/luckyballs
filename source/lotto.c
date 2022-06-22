@@ -1560,8 +1560,15 @@ void printBallStats(struct ListX *ballStats)
 {
 	struct Item *t = ballStats->head;
 	int i = 0;
+
+#ifdef __MSDOS__
+	int col = 10;
+#else
+	int col = 15;
+#endif
+
 	while (t) {
-		if (i%15 == 0 && i!=0) printf("\n");
+		if (i%col == 0 && i!=0) printf("\n");
 		printf("%2d:%3d  ", t->key, t->val);
 		t=t->next;
 		i++;
@@ -1575,8 +1582,8 @@ void printLuckyBalls(struct ListXY *pl, FILE *fp)
 	struct ListX *nl = pl->list;
 	struct Item *pt = nl->head;
 	int i = 0;
-    int len = length(nl);
-	
+	int len = length(nl);
+
 	while (nl) {
 		if (i%(8-len) == 0 && i!=0) {
             printf("\n");
@@ -1616,15 +1623,10 @@ int numberOfTerm(int sum)
 int gaussIndex(int ballCount)
 {
 	int node=0, leftnode=0, level;
-    int i, rand1, rand2 = 0;
 
 	for (level=1; level<ballCount;)
 	{
-        rand1 = rand() % 100;
-        for(i=0; i < rand2 + rand() % 2; i++);
-        rand2 = rand() % 2;
-
-        if (rand1 < 49 + rand2)
+        if (rand() % 100 < 49 + rand() % 2)
 			node = node + level;
         else
 			node = node + level + 1;
@@ -4409,8 +4411,6 @@ struct ListX * drawBallByBlend2(struct ListX *drawnBallsBlend2, struct ListX *ba
 			appendItem(drawnBallsBlend2, drawball);
 		}
 
-		bubbleSortXByKey(drawnBallsBlend2);
-
 		noMatch = 0;
         if (matchComb) {
             if (!findComb(drawnBallsBlend2, matchComb)) noMatch = 1;
@@ -4470,8 +4470,6 @@ struct ListX * drawBallBySide(struct ListX *drawnBallsSide, struct ListX *ballSt
 	        }
 			appendItem(drawnBallsSide, drawball);
 		}
-
-		bubbleSortXByKey(drawnBallsSide);
 
 		noMatch = 0;
         if (matchComb) {
@@ -4886,19 +4884,19 @@ keybCommand:
 	   	    printListXYWithSSByKey(coupon, coupon_ss, fp);
 	        removeAllXY(coupon_ss);
 		#else
-	        printListXYByKey(coupon, fp);
+			  printListXYByKey(coupon, fp);
 		#endif
 
         removeAllXY(coupon);
 
 	} else if (keyb == 2) {
     	printf("Calculation results are writing to %s file...\n", OUTPUTFILE);
-        calcCombMatch(2, fp);
+		  calcCombMatch(2, fp);
 	} else if (keyb == 3) {
-    	printf("Calculation results are writing to %s file...\n", OUTPUTFILE);
-    	calcCombMatch(3, fp);
+		printf("Calculation results are writing to %s file...\n", OUTPUTFILE);
+		calcCombMatch(3, fp);
 	} else if (keyb == 4) {
-    	calcCombMatch(4, fp);
+		calcCombMatch(4, fp);
 	} else if (keyb == 5) {
     	calcCombMatch(5, fp);
 	} else if (keyb == 6) {
@@ -4913,18 +4911,18 @@ keybCommand:
        	printf("Numbers that love each other (3 numbers):\n\n");
        	fprintf(fp, "Numbers that love each other (3 numbers):\n\n");
         bubbleSortYByVal(luckyBalls3, -1);
-        printLuckyBalls(luckyBalls3, fp);
+		  printLuckyBalls(luckyBalls3, fp);
         removeAllXY(luckyBalls3);
 	} else if (keyb == 8) {
         luckyBalls4 = getLuckyBalls(luckyBalls4, 4);
        	printf("Numbers that love each other (4 numbers):\n\n");
        	fprintf(fp, "Numbers that love each other (4 numbers):\n\n");
-        bubbleSortYByVal(luckyBalls4, -1);
-        printLuckyBalls(luckyBalls4, fp);
+		  bubbleSortYByVal(luckyBalls4, -1);
+		  printLuckyBalls(luckyBalls4, fp);
         removeAllXY(luckyBalls4);
 	} 
     
-   	printf("\nThe results are written to %s file.\n", OUTPUTFILE);
+		printf("\nThe results are written to %s file.\n", OUTPUTFILE);
 
     fclose(fp);
     
@@ -4933,7 +4931,7 @@ keybCommand:
     if (keyb == 1) printf("1- Draw Again\n");
    	printf("9- Exit\n");
 	printf("\nPlease make your selection: ");
-    goto keybCommand;
+	 goto keybCommand;
 
 exitProgram:
 

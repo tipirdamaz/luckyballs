@@ -46,7 +46,7 @@ CoreFoundation to link line */
 
 #define TOTAL_BALL 69			    // total ball count
 #define DRAW_BALL 5		            // number of balls to be drawn
-#define TOTAL_BALL_PB 39		    // total power ball count
+#define TOTAL_BALL_PB 26		    // total power ball count
 
 
 #ifdef __MSDOS__
@@ -514,9 +514,9 @@ void printListXYWithPBByKey(struct ListXY *pl1, struct ListXY *pl2, FILE *fp);
  * How many times the balls has been drawn so far
  * 
  * @param {struct ListX *} winningBallStats      : How many times were the winning numbers drawn in the previous draws?
- * @param {struct ListX *} powerBallBallStats    : How many times were the powerBall numbers drawn in the previous draws?
+ * @param {struct ListX *} powerBallStats   	 : How many times were the powerBall numbers drawn in the previous draws?
  */
-void getDrawnBallsStats(struct ListX *winningBallStats, struct ListX *powerBallBallStats);
+void getDrawnBallsStats(struct ListX *winningBallStats, struct ListX *powerBallStats);
 
 
 
@@ -1518,8 +1518,15 @@ void printBallStats(struct ListX *ballStats)
 {
 	struct Item *t = ballStats->head;
 	int i = 0;
+
+#ifdef __MSDOS__
+	int col = 10;
+#else
+	int col = 15;
+#endif
+
 	while (t) {
-		if (i%15 == 0 && i!=0) printf("\n");
+		if (i%col == 0 && i!=0) printf("\n");
 		printf("%2d:%3d  ", t->key, t->val);
 		t=t->next;
 		i++;
@@ -1533,8 +1540,8 @@ void printLuckyBalls(struct ListXY *pl, FILE *fp)
 	struct ListX *nl = pl->list;
 	struct Item *pt = nl->head;
 	int i = 0;
-    int len = length(nl);
-	
+	int len = length(nl);
+
 	while (nl) {
 		if (i%(8-len) == 0 && i!=0) {
             printf("\n");
@@ -1574,15 +1581,10 @@ int numberOfTerm(int sum)
 int gaussIndex(int ballCount)
 {
 	int node=0, leftnode=0, level;
-    int i, rand1, rand2 = 0;
 
 	for (level=1; level<ballCount;)
 	{
-        rand1 = rand() % 100;
-        for(i=0; i < rand2 + rand() % 2; i++);
-        rand2 = rand() % 2;
-
-        if (rand1 < 49 + rand2)
+        if (rand() % 100 < 49 + rand() % 2)
 			node = node + level;
         else
 			node = node + level + 1;
@@ -2536,7 +2538,7 @@ void drawBallsByLucky(struct ListXY *coupon, int drawCount, int totalDrawCount)
 	struct ListX *drawRow = NULL;
 
 	struct ListX *winningBallStats = NULL;
-	struct ListX *powerBallBallStats = NULL;
+	struct ListX *powerBallStats = NULL;
 
 	struct ListX *drawnBallsNorm = NULL;
 
@@ -2544,9 +2546,9 @@ void drawBallsByLucky(struct ListXY *coupon, int drawCount, int totalDrawCount)
     drawnBallsNorm = createListX(drawnBallsNorm, NULL, label, 0);
 
 	winningBallStats = createListX(winningBallStats, NULL, NULL, 0);
-	powerBallBallStats = createListX(powerBallBallStats, NULL, NULL, 0);
+	powerBallStats = createListX(powerBallStats, NULL, NULL, 0);
 
-	getDrawnBallsStats(winningBallStats, powerBallBallStats);
+	getDrawnBallsStats(winningBallStats, powerBallStats);
 
     luckyBalls2 = createListXY(luckyBalls2);
     luckyBalls2 = getLuckyBalls(luckyBalls2, 2);
@@ -2681,12 +2683,12 @@ void drawBalls(struct ListXY *coupon, int drawCount, int drawByDate)
 	struct ListX *drawnBallsDate2 = NULL;
 
 	struct ListX *winningBallStats = NULL;
-	struct ListX *powerBallBallStats = NULL;
+	struct ListX *powerBallStats = NULL;
 
 	winningBallStats = createListX(winningBallStats, NULL, NULL, 0);
-	powerBallBallStats = createListX(powerBallBallStats, NULL, NULL, 0);
+	powerBallStats = createListX(powerBallStats, NULL, NULL, 0);
 
-	getDrawnBallsStats(winningBallStats, powerBallBallStats);
+	getDrawnBallsStats(winningBallStats, powerBallStats);
 
 	strcpy(label, "(normal distribution)");
     drawnBallsNorm = createListX(drawnBallsNorm, NULL, label, 0);
@@ -2979,12 +2981,12 @@ void drawBallsPB(struct ListXY *coupon, int drawCount)
 	struct ListX *drawnBalls = NULL;
 
 	struct ListX *winningBallStats = NULL;
-	struct ListX *powerBallBallStats = NULL;
+	struct ListX *powerBallStats = NULL;
 
 	winningBallStats = createListX(winningBallStats, NULL, NULL, 0);
-	powerBallBallStats = createListX(powerBallBallStats, NULL, NULL, 0);
+	powerBallStats = createListX(powerBallStats, NULL, NULL, 0);
 
-	getDrawnBallsStats(winningBallStats, powerBallBallStats);
+	getDrawnBallsStats(winningBallStats, powerBallStats);
 
 	strcpy(label, "super star");
 
@@ -2993,7 +2995,7 @@ void drawBallsPB(struct ListXY *coupon, int drawCount)
 		drawnBalls = createListX(drawnBalls, NULL, label, 0);
 		for (j=0; j<6; j++) 
     	{
-			drawnBalls = drawBallByNorm(drawnBalls, powerBallBallStats, TOTAL_BALL_PB, 1, 0, 0);
+			drawnBalls = drawBallByNorm(drawnBalls, powerBallStats, TOTAL_BALL_PB, 1, 0, 0);
    			found = search1BallXY(coupon, drawnBalls, 1);
     		if(!found) break;
 		}
@@ -3001,7 +3003,7 @@ void drawBallsPB(struct ListXY *coupon, int drawCount)
 		if (found) {
 			for (j=0; j<6; j++) 
     		{
-				drawnBalls = drawBallByRand(drawnBalls, powerBallBallStats, TOTAL_BALL_PB, 1, 0, 0);
+				drawnBalls = drawBallByRand(drawnBalls, powerBallStats, TOTAL_BALL_PB, 1, 0, 0);
    				found = search1BallXY(coupon, drawnBalls, 1);
     			if(!found) break;
 			}
@@ -3010,7 +3012,7 @@ void drawBallsPB(struct ListXY *coupon, int drawCount)
 		if (found) {
 			for (j=0; j<6; j++) 
     		{
-				drawnBalls = drawBallByBlend1(drawnBalls, powerBallBallStats, TOTAL_BALL_PB, 1, 0, 0);
+				drawnBalls = drawBallByBlend1(drawnBalls, powerBallStats, TOTAL_BALL_PB, 1, 0, 0);
    				found = search1BallXY(coupon, drawnBalls, 1);
     			if(!found) break;
 			}
@@ -3019,7 +3021,7 @@ void drawBallsPB(struct ListXY *coupon, int drawCount)
 		if (found) {
 			for (j=0; j<6; j++) 
     		{
-				drawnBalls = drawBallByBlend2(drawnBalls, powerBallBallStats, TOTAL_BALL_PB, 1, 0, 0);
+				drawnBalls = drawBallByBlend2(drawnBalls, powerBallStats, TOTAL_BALL_PB, 1, 0, 0);
    				found = search1BallXY(coupon, drawnBalls, 1);
     			if(!found) break;
 			}
@@ -3028,7 +3030,7 @@ void drawBallsPB(struct ListXY *coupon, int drawCount)
 		if (found) {
 			for (j=0; j<6; j++) 
     		{
-			    drawnBalls = drawBallByNorm(drawnBalls, powerBallBallStats, TOTAL_BALL_PB, 1, 0, 0);
+			    drawnBalls = drawBallByNorm(drawnBalls, powerBallStats, TOTAL_BALL_PB, 1, 0, 0);
    			    found = search1BallXY(coupon, drawnBalls, 1);
     		    if(!found) break;
 			}
@@ -3684,8 +3686,6 @@ struct ListX * drawBallByBlend2(struct ListX *drawnBallsBlend2, struct ListX *ba
 			appendItem(drawnBallsBlend2, drawball);
 		}
 
-		bubbleSortXByKey(drawnBallsBlend2);
-
 		noMatch = 0;
         if (matchComb) {
             if (!findComb(drawnBallsBlend2, matchComb)) noMatch = 1;
@@ -3745,8 +3745,6 @@ struct ListX * drawBallBySide(struct ListX *drawnBallsSide, struct ListX *ballSt
 	        }
 			appendItem(drawnBallsSide, drawball);
 		}
-
-		bubbleSortXByKey(drawnBallsSide);
 
 		noMatch = 0;
         if (matchComb) {
@@ -3827,7 +3825,7 @@ struct ListX * drawBallByNorm(struct ListX *drawnBallsNorm, struct ListX *ballSt
 
 
 
-void getDrawnBallsStats(struct ListX *winningBallStats, struct ListX *powerBallBallStats)
+void getDrawnBallsStats(struct ListX *winningBallStats, struct ListX *powerBallStats)
 {
 	int i;
 	int n1, n2, n3, n4, n5;
@@ -3862,18 +3860,18 @@ void getDrawnBallsStats(struct ListX *winningBallStats, struct ListX *powerBallB
 
 	for (i=0; i<TOTAL_BALL_PB; i++)
 	{
-		insertItem(powerBallBallStats, i+1);
+		insertItem(powerBallStats, i+1);
 	}
 
 	for (i=0; i<TOTAL_BALL_PB; i++)
 	{
-		chgVal(powerBallBallStats, i, 0);
+		chgVal(powerBallStats, i, 0);
 	}
 
 	for (i=0; i<lengthY(powerBallDrawnBallsList); i++) {
 		aPrvDrawn = getListXByIndex(powerBallDrawnBallsList, i);
 		powerBall = getKey(aPrvDrawn, 0);
-		if ((index = seqSearch(powerBallBallStats,powerBall)) != -1) incVal(powerBallBallStats, index);
+		if ((index = seqSearch(powerBallStats,powerBall)) != -1) incVal(powerBallStats, index);
 	}
 }
 
@@ -3981,7 +3979,7 @@ int main(void)
 	int keyb = 0, keyb2;
 
 	struct ListX *winningBallStats = NULL;
-	struct ListX *powerBallBallStats = NULL;
+	struct ListX *powerBallStats = NULL;
 	struct ListXY *coupon = NULL;
 	struct ListXY *coupon_pb = NULL;
 
@@ -3996,7 +3994,7 @@ int main(void)
 	init();
 
 	winningBallStats = createListX(winningBallStats, NULL, NULL, 0);
-	powerBallBallStats = createListX(powerBallBallStats, NULL, NULL, 0);
+	powerBallStats = createListX(powerBallStats, NULL, NULL, 0);
 
 	coupon = createListXY(coupon);
 	coupon_pb = createListXY(coupon_pb);
@@ -4005,9 +4003,9 @@ int main(void)
 	luckyBalls3 = createListXY(luckyBalls3);
 	luckyBalls4 = createListXY(luckyBalls4);
 
-	getDrawnBallsStats(winningBallStats, powerBallBallStats);
+	getDrawnBallsStats(winningBallStats, powerBallStats);
 	bubbleSortXByVal(winningBallStats, -1);
-	bubbleSortXByVal(powerBallBallStats, -1);
+	bubbleSortXByVal(powerBallStats, -1);
 
 mainMenu:
 	printf("PowerBall Lotto 1.0 Copyright ibrahim Tipirdamaz (c) 2022\n\n");
@@ -4016,7 +4014,7 @@ mainMenu:
 	printf("\n\n");
 
 	printf("Number of draws of PowerBalls : \n\n");
-	printBallStats(powerBallBallStats);
+	printBallStats(powerBallStats);
 	printf("\n\n");
 
    	printf("1- Draw Ball\n");
