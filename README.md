@@ -125,6 +125,9 @@ This program offers you useful 1 and 2 dimensional data structures created with 
 
 ![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/12.png)
 
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/13.png)
+
+![alt text](https://github.com/tipirdamaz/luckyballs/blob/main/screenshots/14.png)
 
 
 # DATA STRUCTURES
