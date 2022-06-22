@@ -74,6 +74,7 @@ This program offers you useful 1 and 2 dimensional data structures created with 
 # HOW TO COMPILE FILES?
 
    SAYISAL AND SUPER LOTTO
+   
    The lotto.c file can be compiled for both sayisal and super lotto.
 
       To compile for the sayisal lotto:
@@ -93,6 +94,7 @@ This program offers you useful 1 and 2 dimensional data structures created with 
          gcc lotto.c -o outputfile -lm
 
    POWERBALL
+   
    To compile the powerball.c file
 
       gcc powerball.c -o outputfile -lm
