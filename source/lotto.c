@@ -4508,7 +4508,12 @@ struct ListX * drawBallByNorm(struct ListX *drawnBallsNorm, struct ListX *ballSt
 
    	for (k=0; k<totalBall; k++)
     {
-	    appendItem(globe, getKey(ballStats, k));
+	    if (k%2) {
+		    insertItem(globe, getKey(ballStats, k));
+	    }
+	    else {
+		    appendItem(globe, getKey(ballStats, k));
+	    }
     }
 
 	for (k=0; k<totalBall; k++)
