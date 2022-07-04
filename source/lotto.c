@@ -3907,10 +3907,10 @@ void calcCombMatch(int comb, FILE *fp)
 void drawBallsByLucky(struct ListXY *coupon, int drawNum, int totalDrawCount)
 {
 	int i, j, k;
-    int index;
-    int ind1, ind2, ind3;
-    int ball1, ball2, ball3;
-    char label[30];
+	int index;
+	int ind1, ind2, ind3;
+	int ball1, ball2, ball3;
+	char label[30];
 	struct ListXY *luckyBalls2 = NULL;
 	struct ListXY *luckyBalls3 = NULL;
 	struct ListXY *luckyBalls2Sorted = NULL;
@@ -3919,113 +3919,113 @@ void drawBallsByLucky(struct ListXY *coupon, int drawNum, int totalDrawCount)
 	struct ListX *luckyRow3 = NULL;
 	struct ListX *drawRow = NULL;
 
-    luckyBalls2 = createListXY(luckyBalls2);
-    luckyBalls2 = getLuckyBalls(luckyBalls2, 2);
+	luckyBalls2 = createListXY(luckyBalls2);
+	luckyBalls2 = getLuckyBalls(luckyBalls2, 2);
 
-    luckyBalls2Sorted = createListXY(luckyBalls2Sorted);
-    luckyBalls2Sorted = getLuckyBalls(luckyBalls2Sorted, 2);
+	luckyBalls2Sorted = createListXY(luckyBalls2Sorted);
+	luckyBalls2Sorted = getLuckyBalls(luckyBalls2Sorted, 2);
 
-    luckyBalls3 = createListXY(luckyBalls3);
-    luckyBalls3 = getLuckyBalls(luckyBalls3, 3);
+	luckyBalls3 = createListXY(luckyBalls3);
+	luckyBalls3 = getLuckyBalls(luckyBalls3, 3);
 
-    luckyBalls3Sorted = createListXY(luckyBalls3Sorted);
-    luckyBalls3Sorted = getLuckyBalls(luckyBalls3Sorted, 3);
+	luckyBalls3Sorted = createListXY(luckyBalls3Sorted);
+	luckyBalls3Sorted = getLuckyBalls(luckyBalls3Sorted, 3);
 
-    bubbleSortYByVal(luckyBalls2Sorted, -1);
-    bubbleSortYByVal(luckyBalls3Sorted, -1);
+	bubbleSortYByVal(luckyBalls2Sorted, -1);
+	bubbleSortYByVal(luckyBalls3Sorted, -1);
 
-    for (i=0; i<3;) 
-    {
-        if (i == 0) strcpy(label, "(lucky 3)");
-        else if (i == 1) strcpy(label, "(2 of lucky 3)");
-        else strcpy(label, "(lucky 2)");
+	for (i=0; i<3;) 
+	{
+		if (i == 0) strcpy(label, "(lucky 3)");
+		else if (i == 1) strcpy(label, "(2 of lucky 3)");
+		else strcpy(label, "(lucky 2)");
 
-        if (i == 0) k = 3;
-        else k = 2;
-   	    drawRow = createListX(drawRow, NULL, label, 0);
-        if (i < 2) {
-            luckyRow3 = getListXByIndex(luckyBalls3Sorted, rand()%10);
-            ind1 = rand()%3;
-            if (ind1 == 0) {
-                ind2 = rand()%2 +1;
-                if (ind2 == 1) ind3 = 2;
-                else ind3 = 1;
-            }
-            else if (ind1 == 1) {
-                ind2 = 0;
-                ind3 = 2;
-            }
-            else {
-                ind2 = rand()%2;
-                if (ind2 == 0) ind3 = 1;
-                else ind3 = 0;
-            }
-            ball1 = getKey(luckyRow3, ind1);
-            ball2 = getKey(luckyRow3, ind2);
-            ball3 = getKey(luckyRow3, ind3);
-            appendItem(drawRow, ball1);
-            if (i == 0) appendItem(drawRow, ball2);
-            appendItem(drawRow, ball3);
-        } else {
-            if (i < 2) {
-                luckyRow2 = getListXByIndex(luckyBalls2Sorted, rand()%10);
-            } else {
-                do {
-                    index = rand() % lengthY(luckyBalls2);
-                    luckyRow2 = getListXByIndex(luckyBalls2, index);
-                } while (luckyRow2->val < ceil(180/TOTAL_BALL)+1);
-                //} while (0);
-            }
-            ind1 = rand()%2;
-            if (ind1 == 0) ind2 = 1;
-            else ind2 = 0;
-            ball1 = getKey(luckyRow2, ind1);
-            ball2 = getKey(luckyRow2, ind2);
-            appendItem(drawRow, ball1);
-            appendItem(drawRow, ball2);
-        }
-
-        for (j=0; j<DRAW_BALL-k; j++)
-        {
-            do {
-                do {
-                    index = rand() % lengthY(luckyBalls2);
-                    luckyRow2 = getListXByIndex(luckyBalls2, index);
-                } while ((ind1 = seqSearchX1(luckyRow2, ball2)) < 0 || luckyRow2->val < ceil(180/TOTAL_BALL)+1);
-                //} while ((ind1 = seqSearchX1(luckyRow2, ball2)) < 0 );
-                if (ind1 == 0) ind2 = 1;
-                else ind2 = 0;
-                ball2 = getKey(luckyRow2, ind2);
-            } while (seqSearchX1(drawRow, ball2) >= 0);
-            appendItem(drawRow, ball2);
-        }
-        
-        if (lengthY(coupon) < ceil(totalDrawCount/3)) {
-			if (search2CombXY(coupon, drawRow)) {
-    	        removeAllX(drawRow);
-        	    free(drawRow);
-            	continue;
-        	}
-        	else i++;
-        } else if (lengthY(coupon) >= ceil(totalDrawCount/3) && lengthY(coupon) < 2*ceil(totalDrawCount/3)) {
-			if (search3CombXY(coupon, drawRow)) {
-    	        removeAllX(drawRow);
-        	    free(drawRow);
-            	continue;
-        	}
-        	else i++;
+		if (i == 0) k = 3;
+		else k = 2;
+   		drawRow = createListX(drawRow, NULL, label, 0);
+		if (i < 2) {
+			luckyRow3 = getListXByIndex(luckyBalls3Sorted, rand()%10);
+			ind1 = rand()%3;
+			if (ind1 == 0) {
+				ind2 = rand()%2 +1;
+				if (ind2 == 1) ind3 = 2;
+				else ind3 = 1;
+			}
+			else if (ind1 == 1) {
+				ind2 = 0;
+				ind3 = 2;
+			}
+			else {
+				ind2 = rand()%2;
+				if (ind2 == 0) ind3 = 1;
+				else ind3 = 0;
+			}
+			ball1 = getKey(luckyRow3, ind1);
+			ball2 = getKey(luckyRow3, ind2);
+			ball3 = getKey(luckyRow3, ind3);
+			appendItem(drawRow, ball1);
+			if (i == 0) appendItem(drawRow, ball2);
+			appendItem(drawRow, ball3);
 		} else {
-			if (search4CombXY(coupon, drawRow)) {
-    	        removeAllX(drawRow);
-        	    free(drawRow);
-            	continue;
-        	}
-        	else i++;
+			if (i < 2) {
+				luckyRow2 = getListXByIndex(luckyBalls2Sorted, rand()%10);
+			} else {
+				do {
+					index = rand() % lengthY(luckyBalls2);
+					luckyRow2 = getListXByIndex(luckyBalls2, index);
+				} while (luckyRow2->val < ceil(180/TOTAL_BALL)+1);
+				//} while (0);
+			}
+			ind1 = rand()%2;
+			if (ind1 == 0) ind2 = 1;
+			else ind2 = 0;
+			ball1 = getKey(luckyRow2, ind1);
+			ball2 = getKey(luckyRow2, ind2);
+			appendItem(drawRow, ball1);
+			appendItem(drawRow, ball2);
+		}
+
+		for (j=0; j<DRAW_BALL-k; j++)
+		{
+			do {
+				do {
+					index = rand() % lengthY(luckyBalls2);
+					luckyRow2 = getListXByIndex(luckyBalls2, index);
+				} while ((ind1 = seqSearchX1(luckyRow2, ball2)) < 0 || luckyRow2->val < ceil(180/TOTAL_BALL)+1);
+				//} while ((ind1 = seqSearchX1(luckyRow2, ball2)) < 0 );
+				if (ind1 == 0) ind2 = 1;
+				else ind2 = 0;
+				ball2 = getKey(luckyRow2, ind2);
+			} while (seqSearchX1(drawRow, ball2) >= 0);
+			appendItem(drawRow, ball2);
 		}
 		
-        bubbleSortXByKey(drawRow);
-        if (i == drawNum) appendList(coupon, drawRow);
-    }
+		if (lengthY(coupon) < ceil(totalDrawCount/3)) {
+			if (search2CombXY(coupon, drawRow)) {
+				removeAllX(drawRow);
+				free(drawRow);
+				continue;
+			}
+			else i++;
+		} else if (lengthY(coupon) >= ceil(totalDrawCount/3) && lengthY(coupon) < 2*ceil(totalDrawCount/3)) {
+			if (search3CombXY(coupon, drawRow)) {
+				removeAllX(drawRow);
+				free(drawRow);
+				continue;
+			}
+			else i++;
+		} else {
+			if (search4CombXY(coupon, drawRow)) {
+				removeAllX(drawRow);
+				free(drawRow);
+				continue;
+			}
+			else i++;
+		}
+		
+		bubbleSortXByKey(drawRow);
+		if (i == drawNum) appendList(coupon, drawRow);
+	}
 }
 
 
@@ -4087,7 +4087,7 @@ startDraw:
 			elimComb = 2;
 		}
 
-		for (i=0; i<41; i++) 
+		for (i=0; i<49; i++) 
 		{
 			drawnBallsNorm = drawBallByNorm(drawnBallsNorm, winningBallStats, TOTAL_BALL, DRAW_BALL, matchComb, elimComb);
 
@@ -4134,7 +4134,7 @@ startDraw:
 			elimComb = 2;
 		}
 
-		for (i=0; i<41; i++) 
+		for (i=0; i<49; i++) 
 		{
 			drawnBallsBlend1 = drawBallByBlend1(drawnBallsBlend1, winningBallStats, TOTAL_BALL, DRAW_BALL, matchComb, elimComb);
 
@@ -4181,7 +4181,7 @@ startDraw:
 			elimComb = 2;
 		}
 
-		for (i=0; i<41; i++) 
+		for (i=0; i<49; i++) 
 		{
 			drawnBallsBlend2 = drawBallByBlend2(drawnBallsBlend2, winningBallStats, TOTAL_BALL, DRAW_BALL, matchComb, elimComb);
 
@@ -4228,7 +4228,7 @@ startDraw:
 			elimComb = 2;
 		}
 
-		for (i=0; i<41; i++) 
+		for (i=0; i<49; i++) 
 		{
 			drawnBallsLeft = drawBallByLeft(drawnBallsLeft, winningBallStats, TOTAL_BALL, DRAW_BALL, matchComb, elimComb);
 
@@ -4275,7 +4275,7 @@ startDraw:
 			elimComb = 2;
 		}
 
-		for (i=0; i<41; i++) 
+		for (i=0; i<49; i++) 
 		{
 			drawnBallsSide = drawBallBySide(drawnBallsSide, winningBallStats, TOTAL_BALL, DRAW_BALL, matchComb, elimComb);
 
@@ -4322,7 +4322,7 @@ startDraw:
 			elimComb = 2;
 		}
 
-		for (i=0; i<41; i++) 
+		for (i=0; i<49; i++) 
 		{
 			drawnBallsRand = drawBallByRand(drawnBallsRand, winningBallStats, TOTAL_BALL, DRAW_BALL, matchComb, elimComb);
 
